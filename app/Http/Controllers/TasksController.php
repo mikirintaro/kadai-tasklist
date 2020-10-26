@@ -117,6 +117,7 @@ class TasksController extends Controller
         ]);
         // メッセージを作成
         $task = Task::findOrFail($id);
+        $task->user_id = \Auth::id();
         $task->status = $request->status;
         $task->content = $request->content;
         $task->save();
